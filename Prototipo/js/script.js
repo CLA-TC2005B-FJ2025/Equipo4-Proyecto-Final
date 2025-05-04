@@ -1,3 +1,4 @@
+import apiUrl from './config.js';
 let imageSrc = '';
 const grid = document.getElementById('imageGrid');
 let imgWidth, imgHeight;
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
 async function cargarPreguntas() {
     try {
-        const response = await fetch('http://localhost:5000/api/preguntas');
+        const response = await fetch('${apiUrl}/api/preguntas');
         if (!response.ok) throw new Error("Error en la respuesta");
         return await response.json();
     } catch (error) {
@@ -49,7 +50,7 @@ async function cargarPreguntas() {
 
 async function cargarGrixelesDesbloqueados() {
     try {
-        const response = await fetch('http://localhost:5000/api/grixeles_completos');
+        const response = await fetch('${apiUrl}/api/grixeles_completos');
         if (!response.ok) throw new Error("Error al obtener grixeles desbloqueados");
         return await response.json();
     } catch (error) {
@@ -67,7 +68,7 @@ async function registrarRespuesta(celdaID, respuestaID, esCorrecta) {
             correcta: esCorrecta
         });
 
-        const response = await fetch('http://localhost:5000/api/responde', {
+        const response = await fetch('${apiUrl}/api/responde', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -239,7 +240,7 @@ function mostrarTodaLaImagen() {
 
 let nombreCorrecto = '';
 
-fetch('http://localhost:5000/api/name')
+fetch('${apiUrl}/api/name')
   .then(response => response.json())
   .then(data => {
     if (data.nombre) {
