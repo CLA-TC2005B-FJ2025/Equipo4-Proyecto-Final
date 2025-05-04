@@ -1,10 +1,11 @@
+import apiUrl from './config.js';
 document.addEventListener("DOMContentLoaded", function() {
     const historialContainer = document.getElementById('historial');
 
     // Función para cargar los intentos desde la API
     async function cargarIntentos() {
         try {
-            const response = await fetch('http://localhost:5000/api/respuestas');
+            const response = await fetch('${apiUrl}/api/respuestas');
             if (!response.ok) {
                 throw new Error('Error al obtener los intentos');
             }
