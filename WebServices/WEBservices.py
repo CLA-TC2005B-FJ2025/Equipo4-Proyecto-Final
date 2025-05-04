@@ -15,7 +15,7 @@ CORS(app)
 # Configura tu conexión a SQL Server
 server = 'localhost'  # Nombre de tu servidor
 port = 1433
-database = 'LienzoDatabase'  
+database = 'master'  
 username = 'sa'
 password = 'YourPassword123!'
 
