@@ -74,6 +74,7 @@
   </div>
 
   <script>
+    import apiUrl from '../js/config.js';
     const form = document.getElementById("upload-form");
     const preview = document.getElementById("preview");
     const fileInput = document.getElementById("image-file");
@@ -93,7 +94,7 @@
       const formData = new FormData(form);
 
       try {
-        const res = await fetch("http://localhost:5000/api/imagenes", {
+        const res = await fetch(`${apiUrl}/api/imagenes`, {
           method: "POST",
           body: formData
         });
