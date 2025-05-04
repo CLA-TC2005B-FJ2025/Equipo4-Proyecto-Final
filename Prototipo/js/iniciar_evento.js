@@ -1,15 +1,6 @@
 import apiUrl from '../js/config.js';
 document.getElementById('start-event-btn').addEventListener('click', async function() {
     try {
-        // Primero, borrar el contenido de la tabla "responde"
-        const borrarRespondeResponse = await fetch(`${apiUrl}/api/borrar_responde`, {
-          method: 'DELETE'
-        });
-  
-        if (!borrarRespondeResponse.ok) {
-            throw new Error("Error al borrar los datos de la tabla responde.");
-        }
-  
         // Hacer una solicitud al backend para obtener el nombre de la última imagen añadida
         const response = await fetch(`${apiUrl}/api/ultima-imagen`);
         const data = await response.json();
