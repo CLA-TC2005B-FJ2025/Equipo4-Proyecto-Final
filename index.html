@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Lienzo</title>
+    <link rel="stylesheet" href="Prototipo/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <header class="header">
+        <a href="https://www.lienzo.mx/es/inicio/">
+            <img src="Prototipo/assets/img/logo.png" alt="Lienzo Logo" width="300" height="100">
+        </a>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h2 class="title">Log in</h2>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">Let's go!</button>
+                
+                <div class="divider">or</div>
+                
+                <div class="social-login">
+                    <div id="googleSignInDiv"></div>                 
+                      <button type="button" id="facebookLogin" class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i> Continue with Facebook
+                      </button>
+                </div>
+            </form>
+
+            <!-- Enlace para registrarse (Sign In) -->
+            <div class="sign-up-link">
+                <p>¿No tienes cuenta? <a href="Prototipo/html/singin.html">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.tiktok.com/@lienzomx" class="tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://www.facebook.com/LienzoMexico/?locale=es_LA" class="facebook"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.instagram.com/lienzomx/" class="instagram"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://youtube.com/@lienzomxofficial?si=lKtZmG901C068jND" class="youtube"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://twitter.com/LienzoMx" class="twitter"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+    </footer>
+
+    <script src="Prototipo/js/index.js" type="module"></script>
+</body>
+</html>
+
