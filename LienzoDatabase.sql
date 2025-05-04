@@ -9,7 +9,7 @@ CREATE TABLE grixeles (
 );
 
 CREATE TABLE imagenes (
-    ImagenID INT NOT NULL,
+    ImagenID INT IDENTITY(1,1) NOT NULL,
     nombre VARCHAR(255) NOT NULL,
     url_imagen VARCHAR(500) NOT NULL,
     email_usuario VARCHAR(255),
