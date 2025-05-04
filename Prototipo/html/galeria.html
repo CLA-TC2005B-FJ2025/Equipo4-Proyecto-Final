@@ -117,7 +117,7 @@
 
     async function cargarImagenes() {
       try {
-        const res = await fetch("http://localhost:5000/api/imagenes");
+        const res = await fetch(`${apiUrl}/api/imagenes`);
         const imagenes = await res.json();
 
         imagenesContainer.innerHTML = '';
