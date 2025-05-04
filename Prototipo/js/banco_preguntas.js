@@ -1,10 +1,10 @@
-import apiUrl from './config.js';
+import apiUrl from '../js/config.js';
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("question-list");
   const form = document.getElementById("add-question-form");
 
   // --- 1. Cargar preguntas existentes ---
-  fetch("${apiUrl}/api/preguntas")
+  fetch(`${apiUrl}/api/preguntas`)
     .then(response => response.json())
     .then(preguntas => {
       preguntas.forEach(p => {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const response = await fetch("${apiUrl}/api/preguntas", {
+      const response = await fetch(`${apiUrl}/api/preguntas`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

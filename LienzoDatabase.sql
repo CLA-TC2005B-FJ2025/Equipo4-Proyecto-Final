@@ -863,4 +863,4 @@ CREATE TABLE usuarios (
 );
 
 INSERT INTO usuarios (email, password_hash, es_admin, fecha_registro, username) VALUES 
-('01563465@tec.mx', '$2a$12$5DszZbRaQGPT9hHkj0ZEfeudvs20mE.kt5u/XfhrnXTe8uQBu.ZO.', 1, GETDATE(), 'explosivesmile');
+('A01563465@tec.mx', '$2a$12$5DszZbRaQGPT9hHkj0ZEfeudvs20mE.kt5u/XfhrnXTe8uQBu.ZO.', 1, GETDATE(), 'explosivesmile');
