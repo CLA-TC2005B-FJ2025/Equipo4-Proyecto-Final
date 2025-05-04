@@ -1,3 +1,4 @@
+import apiUrl from './config.js';
 // Función de manejo del login con Google
 window.handleGoogleLogin = function (response) {
     console.log("ID Token recibido:", response.credential);
@@ -20,7 +21,7 @@ window.handleGoogleLogin = function (response) {
         const password = form.password.value;
   
         try {
-          const res = await fetch('http://localhost:5000/api/login', {
+          const res = await fetch('${apiUrl}/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
