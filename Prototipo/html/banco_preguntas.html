@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banco de Preguntas</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+  <link rel="stylesheet" href="../css/banco_preguntas.css" />
+</head>
+<body>
+  <header class="brand-header">
+    <div class="brand-logo-container">
+      <img src="../assets/img/logo.png" alt="Lienzo Logo" />
+    </div>
+    <div class="admin-badge">Administrador</div>
+  </header>
+
+  <div class="admin-container">
+    <h1>Banco de Preguntas</h1>
+
+    <div class="admin-content">
+      <div class="question-list" id="question-list">
+        <!-- Las preguntas se insertan aquí dinámicamente -->
+      </div>
+    </div>
+  </div>
+  <div class="admin-container">
+    <h1>Banco de Preguntas</h1>
+  
+    <div class="admin-content">
+      <div class="question-list" id="question-list">
+        <!-- Las preguntas se insertan aquí dinámicamente -->
+      </div>
+  
+      <h2>Agregar Pregunta</h2>
+      <form id="add-question-form">
+        <div>
+          <label for="question-text">Pregunta:</label>
+          <input type="text" id="question-text" required />
+        </div>
+        <div>
+          <label for="answer-1">Respuesta 1:</label>
+          <input type="text" id="answer-1" required />
+        </div>
+        <div>
+          <label for="answer-2">Respuesta 2:</label>
+          <input type="text" id="answer-2" required />
+        </div>
+        <div>
+          <label for="answer-3">Respuesta 3:</label>
+          <input type="text" id="answer-3" required />
+        </div>
+        <div>
+          <label for="correct-answer">Respuesta Correcta (1, 2 o 3):</label>
+          <input type="number" id="correct-answer" min="1" max="3" required />
+        </div>
+        <button type="submit">Agregar Pregunta</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <script src="../js/banco_preguntas.js"></script>
+</body>
+</html>

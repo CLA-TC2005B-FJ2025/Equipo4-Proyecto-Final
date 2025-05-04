@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <header class="brand-header">
+        <div class="brand-logo-container">
+            <img src="../assets/img/logo.png" alt="Lienzo Logo" width="300" height="100">        
+        </div>
+        <div class="admin-badge">Administrador</div>
+    </header>
+    
+    <div class="admin-container">
+        <h1>Menú</h1>
+
+        <div class="admin-menu">
+            <button class="admin-btn" onclick="location.href='../html/galeria.html'">Galería</button>
+            <button class="admin-btn" onclick="location.href='../html/usuarios.html'">Usuarios</button>
+            <button class="admin-btn" onclick="location.href='../html/iniciarevento.html'">Iniciar evento</button>
+            <button class="admin-btn" onclick="location.href='../html/banco_preguntas.html'">Banco de preguntas</button>
+        </div>
+        
+        <div class="admin-content" id="admin-content">
+            <!-- Contenido dinámico se cargará aquí -->
+        </div>
+    </div>
+    
+    <script src="admin.js"></script>
+</body>
+</html>

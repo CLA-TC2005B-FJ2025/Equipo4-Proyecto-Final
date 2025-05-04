@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooldown</title>
+    <link rel="stylesheet" href="../css/game.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/img/logo.png" alt="Logo">
+        </div>
+        <div class="user-info">
+            <span>Usuario: <strong id="username">PixMaster</strong></span>
+            <button id="logout">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <div class="cooldown-container">
+        <h2>¡Espera antes de responder nuevamente!</h2>
+        <p id="cooldown-message">Te quedan <span id="time-left">5</span> segundos.</p>
+    </div>
+
+    <script>
+        // Cooldown Timer
+        let timeLeft = 5; // Tiempo de espera (en segundos)
+        const timeDisplay = document.getElementById('time-left');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timeDisplay.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = 'indexGura.html'; 
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Intentos</title>
+</head>
+<body>
+    <h1>Historial de Intentos</h1>
+    <div id="historial"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const historialContainer = document.getElementById('historial');
+
+            // Función para cargar los intentos desde la API
+            async function cargarIntentos() {
+                try {
+                    const response = await fetch('http://localhost:5000/api/responde'); // URL del endpoint
+                    if (!response.ok) {
+                        throw new Error('Error al obtener los intentos');
+                    }
+                    const intentos = await response.json();
+                    mostrarIntentos(intentos);
+                } catch (error) {
+                    console.error("Error cargando intentos:", error);
+                    historialContainer.innerHTML = '<p>No se pudieron cargar los intentos. Inténtalo nuevamente.</p>';
+                }
+            }
+
+            // Función para mostrar los intentos en la página
+            function mostrarIntentos(intentos) {
+                if (intentos.length === 0) {
+                    historialContainer.innerHTML = '<p>No hay intentos registrados.</p>';
+                } else {
+                    historialContainer.innerHTML = intentos.map(intento => {
+                        const fecha = new Date(intento.fecha_respuesta).toLocaleString();
+                        return `
+                            <div class="intento">
+                                <p><strong>Celda:</strong> ${intento.grixel_id}</p>
+                                <p><strong>Respuesta:</strong> ${intento.correcta ? 'Correcta' : 'Incorrecta'}</p>
+                                <p><strong>Usuario:</strong> ${intento.email_usuario}</p>
+                                <p><strong>Fecha:</strong> ${fecha}</p>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            }
+
+            // Cargar los intentos cuando la página se cargue
+            cargarIntentos();
+        });
+    </script>
+</body>
+</html>

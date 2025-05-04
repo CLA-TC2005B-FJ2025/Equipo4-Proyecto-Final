@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Subir Imagen</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      display: block;
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+    }
+
+    #preview {
+      margin-top: 10px;
+      max-width: 100%;
+    }
+
+    #imagenes-subidas {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .imagen-card {
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      max-width: 200px;
+      text-align: center;
+    }
+
+    .imagen-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .imagen-card h4 {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="upload-form" enctype="multipart/form-data">
+    <h2>Subir Imagen</h2>
+    <input type="text" id="image-name" name="nombre" placeholder="Nombre de la imagen" required />
+    <input type="file" id="image-file" name="imagen" accept="image/*" required />
+    <img id="preview" src="#" alt="Vista previa" style="display: none;" />
+    <button type="submit">Subir Imagen</button>
+  </form>
+
+  <div id="imagenes-subidas">
+    <!-- Aquí se cargarán las imágenes desde la base de datos -->
+  </div>
+
+  <script>
+    const form = document.getElementById("upload-form");
+    const preview = document.getElementById("preview");
+    const fileInput = document.getElementById("image-file");
+    const imagenesContainer = document.getElementById("imagenes-subidas");
+
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0];
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+      }
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch("http://localhost:5000/api/imagenes", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          alert("Imagen subida correctamente");
+          form.reset();
+          preview.style.display = "none";
+          cargarImagenes(); 
+        } else {
+          alert("Error: " + (data.error || "Error desconocido"));
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Error al subir imagen.");
+      }
+    });
+
+    async function cargarImagenes() {
+      try {
+        const res = await fetch("http://localhost:5000/api/imagenes");
+        const imagenes = await res.json();
+
+        imagenesContainer.innerHTML = '';
+        imagenes.forEach(img => {
+          const div = document.createElement('div');
+          div.className = 'imagen-card';
+          div.innerHTML = `
+            <img src="../../WebServices/static/uploads/${img.url_imagen}" alt="${img.nombre}" />
+            <h4>${img.nombre}</h4>
+          `;
+          imagenesContainer.appendChild(div);
+        });
+      } catch (err) {
+        console.error('Error cargando imágenes:', err);
+      }
+    }
+
+    cargarImagenes();
+  </script>
+</body>
+</html>
