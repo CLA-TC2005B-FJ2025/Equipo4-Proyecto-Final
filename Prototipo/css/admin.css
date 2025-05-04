@@ -1,0 +1,99 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #E2DDDD;
+    color: #333;
+  }
+  
+  /* Header de la marca */
+  .brand-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DD5D5D;
+    padding: 10px 30px;
+    border-bottom: 4px solid #DD5D5D;
+  }
+  
+  .brand-logo-container img {
+    max-height: 80px;
+  }
+  
+  /* Badge de admin */
+  .admin-badge {
+    background-color: #A62D2D;
+    color: white;
+    font-family: 'Jersey10-Regular';
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 40px;
+  }
+  
+  /* Contenedor principal admin */
+  .admin-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+  }
+  
+  /* Menú de botones */
+  .admin-menu {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+  
+  .admin-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .admin-btn:hover {
+    background-color: #867d7d;
+    transform: scale(1.05);
+  }
+  
+  /* Área de contenido dinámico */
+  .admin-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Secciones individuales dentro del contenido */
+  .admin-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+  }
+  
+  .admin-section h3 {
+    margin-top: 0;
+    color: #444;
+  }
+
+  @font-face {
+    font-family: 'Jersey10-Regular';
+    src: url('../assets/fonts/Jersey10-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  
