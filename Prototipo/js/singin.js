@@ -1,3 +1,4 @@
+import apiUrl from './config.js';
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('signinForm');  // Usamos el ID del formulario
 
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Datos a enviar:', { username, email, password });
 
       try {
-          const res = await fetch('http://localhost:5000/api/signup', {
+          const res = await fetch('${apiUrl}/api/signup', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ username, email, password })
