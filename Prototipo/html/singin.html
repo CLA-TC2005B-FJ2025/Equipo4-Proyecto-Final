@@ -57,7 +57,8 @@
     <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 
     <!-- Tu script para el formulario -->
-    <script>
+    <script type="module">
+        import apiUrl from '../js/config.js';
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('signinForm');
 
@@ -79,7 +80,7 @@
                 console.log('Datos a enviar:', { username, email, password });
 
                 try {
-                    const res = await fetch('http://localhost:5000/api/signup', {
+                    const res = await fetch(`${apiUrl}/api/signup`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ username, email, password })

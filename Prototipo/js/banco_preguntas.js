@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(`${apiUrl}/api/preguntas`)
     .then(response => response.json())
     .then(preguntas => {
-      preguntas.forEach(p => {
+      preguntas.forEach(p => { 
         const card = document.createElement("div");
         card.className = "question-card";
 
