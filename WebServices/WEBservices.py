@@ -13,9 +13,20 @@ CORS(app)
 
 
 # Configura tu conexión a SQL Server
-server = 'EXPLOSIVESMILE\\SQLDEV1'  # Nombre de tu servidor
-database = 'LienzoDatabase'  # Nombre de tu base de datos
-connection_string = f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};Trusted_Connection=yes;'
+server = 'localhost'  # Nombre de tu servidor
+port = 1433
+database = 'LienzoDatabase'  
+username = 'sa'
+password = 'YourPassword123!'
+
+
+connection_string = (
+    f'DRIVER={{ODBC Driver 17 for SQL Server}};'
+    f'SERVER={server},{port};'
+    f'DATABASE={database};'
+    f'UID={username};'
+    f'PWD={password};'
+)
 
 def get_db_connection():
     return pyodbc.connect(connection_string)
